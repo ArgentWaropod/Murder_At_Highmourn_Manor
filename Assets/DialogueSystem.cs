@@ -97,11 +97,12 @@ public class DialogueSystem : MonoBehaviour
             foreach (Choice choice in story.currentChoices)
             {
                 Button choiceButton = Instantiate(buttonPrefab) as Button;
-                TextMeshProUGUI choiceText = buttonPrefab.GetComponentInChildren<TextMeshProUGUI>();
-                choiceText.text = choice.text;
                 choiceButton.transform.SetParent(this.transform, false);
+                Debug.Log(choice.text);
+                TextMeshProUGUI choiceText = choiceButton.GetComponentInChildren<TextMeshProUGUI>();
+                choiceText.text = choice.text;
 
-                choiceButton.onClick.AddListener(delegate { choiceTime(choice); });
+                choiceButton.onClick.AddListener(delegate { choiceTime(choice); LoadStory(); LoadStory(); });
             }
         }
     }
