@@ -18,6 +18,7 @@ public class DialogueSystem : MonoBehaviour
     void Start()
     {
         story = new Story(text.text);
+        story.variablesState["Name"] = NameManager.save_Names.userName; ;
         LoadStory();
     }
 
