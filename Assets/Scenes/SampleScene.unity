@@ -427,15 +427,16 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b1a0e799ab739a745a2e9f528cd22875, type: 3}
   - {fileID: 21300000, guid: 3879c5e7e4ef3234ab9f931260fba1ed, type: 3}
   BGs:
-  - {fileID: 21300000, guid: 45428410030a1d34fa45fdc55cb92f2a, type: 3}
-  - {fileID: 21300000, guid: e9c672e01b82f164f9c03033a2d87b66, type: 3}
-  - {fileID: 21300000, guid: 419951fd30b599243bba0789ee1380e3, type: 3}
-  - {fileID: 21300000, guid: 03ee26f2d110da949a2b22e8017a8cfe, type: 3}
+  - {fileID: 21300000, guid: 5924db07a13e2484dae699b3afebc60d, type: 3}
+  - {fileID: 21300000, guid: 88444f2b174b582479dd2074d8820621, type: 3}
+  - {fileID: 21300000, guid: d4c3b489ab294e34fae965af121a1329, type: 3}
+  - {fileID: 21300000, guid: 5924db07a13e2484dae699b3afebc60d, type: 3}
   dialogueBox: {fileID: 1062322353}
   buttonPrefab: {fileID: 5563299790847591891, guid: 27f263e5caf079540ae683e06ee92f84,
     type: 3}
   bg: {fileID: 1347337981}
   characterSprite: {fileID: 1576861236}
+  timePerChar: 0.1
 --- !u!114 &526426331
 MonoBehaviour:
   m_ObjectHideFlags: 0

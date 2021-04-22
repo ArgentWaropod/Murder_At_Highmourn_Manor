@@ -13,12 +13,17 @@ public class DialogueSystem : MonoBehaviour
     public TextMeshProUGUI dialogueBox;
     public Button buttonPrefab;
     public Image bg, characterSprite;
+    string StoryToWrite;
+    bool writingStory;
+    float timer;
+    int Index;
+    public float timePerChar;
 
     // Start is called before the first frame update
     void Start()
     {
         story = new Story(text.text);
-        story.variablesState["Name"] = NameManager.save_Names.userName; ;
+        story.variablesState["Name"] = NameManager.save_Names.userName;
         LoadStory();
     }
 
@@ -27,15 +32,42 @@ public class DialogueSystem : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            LoadStory();
+            if (writingStory)
+            {
+                writingStory = false;
+                dialogueBox.text = StoryToWrite;
+            }
+            else
+            {
+                LoadStory();
+            }
         }
+        if (writingStory)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0f)
+            {
+                timer += timePerChar;
+                Index++;
+                dialogueBox.text = StoryToWrite.Substring(0, Index);
+
+                if (Index >= StoryToWrite.Length)
+                {
+                    writingStory = false;
+                }
+            }
+        }
+        
+
     }
     void LoadStory()
     {
         if (story.canContinue)
         {
             EraseButtons();
-            dialogueBox.text = story.Continue();
+            Index = 0;
+            writingStory = true;
+            StoryToWrite = story.Continue();
             switch (story.variablesState.GetVariableWithName("ActiveCharacter").ToString())
             {
                 case "Kathrin":
